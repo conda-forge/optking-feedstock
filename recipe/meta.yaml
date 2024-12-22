@@ -12,14 +12,14 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy >=1.21
     - qcelemental >=0.21.0
     - qcengine >=0.21.0
@@ -36,6 +36,7 @@ test:
   requires:
     - pip
     - pytest >=4.0.0
+    - python {{ python_min }}
 
 
 about:
