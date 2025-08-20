@@ -16,14 +16,17 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
+    - setuptools
+
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy >=1.21
     - qcelemental >=0.21.0
     - qcengine >=0.21.0
     - msgpack-python >=1.0
+    - pydantic >=1.10.17
 
 test:
   imports:
@@ -34,6 +37,7 @@ test:
   source_files:
     - optking/tests/test_opthelper.py
   requires:
+    - python {{ python_min }}
     - pip
     - pytest >=4.0.0
 
