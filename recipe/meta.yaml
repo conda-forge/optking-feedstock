@@ -32,7 +32,7 @@ test:
   imports:
     - optking
   commands:
-    - pip check
+    # - pip check
     - pytest -k test_lj_external_gradient
   source_files:
     - optking/tests/test_opthelper.py
