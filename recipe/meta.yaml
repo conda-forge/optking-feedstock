@@ -1,5 +1,5 @@
 {% set name = "optking" %}
-{% set version = "0.4.1" %}
+{% set version = "0.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/psi-rking/optking/archive/{{ version }}.tar.gz
-  sha256: 0295a2f1f98c7818b7c8c580357f862ef267b1e9f8f3a061c1d2c46e280cf55c
+  sha256: 1911aeb8f2459cf8caa39d604158bc04fbf1327e3454bb78d43440c08f5f5a90
 
 build:
   noarch: python
