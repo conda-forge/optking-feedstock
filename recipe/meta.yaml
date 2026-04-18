@@ -37,7 +37,8 @@ test:
   source_files:
     - optking/tests/test_opthelper.py
   requires:
-    - python {{ python_min }}
+    #- python {{ python_min }}
+    - python 3.13
     - pip
     - pytest
 
