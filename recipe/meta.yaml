@@ -33,9 +33,9 @@ test:
     - optking
   commands:
     # - pip check
-    - pytest -k test_lj_external_gradient
-  source_files:
-    - optking/tests/test_opthelper.py
+    - pytest -k test_lj_external_gradient optking/
+  #source_files:
+  #  - optking/tests/test_opthelper.py
   requires:
     #- python {{ python_min }}
     - python 3.13
