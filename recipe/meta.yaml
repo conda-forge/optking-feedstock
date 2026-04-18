@@ -36,8 +36,7 @@ test:
     #- pip check
     # - pip check
     - sed -i 's;from \.utils;#;g' optking/tests/test_opthelper.py
-    - sed -i 's;schver = 2;schver = 1 #;g' optking/tests/test_opthelper.py
-    - pytest -k test_lj_external_gradient optking/
+    - pytest -k test_lj_external_gradient
     #- pytest --pyargs optking -k "lj_external_gradient"
     - python -c "import optking as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
     - pip check
