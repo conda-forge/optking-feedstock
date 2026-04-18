@@ -1,6 +1,5 @@
 {% set name = "optking" %}
 {% set version = "0.5.0" %}
-{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -24,10 +23,10 @@ requirements:
   run:
     - python >={{ python_min }}
     - numpy >=1.21
-    - qcelemental >=0.21.0
-    - qcengine >=0.21.0
+    - qcelemental >=0.30.0,<0.70.0
+    - qcengine >=0.34.0
     - msgpack-python >=1.0
-    - pydantic >=1.10.17
+    - pydantic >=1.10.17,<3
 
 test:
   imports:
@@ -40,7 +39,7 @@ test:
   requires:
     - python {{ python_min }}
     - pip
-    - pytest >=4.0.0
+    - pytest
 
 
 about:
