@@ -1,6 +1,5 @@
 {% set name = "optking" %}
-{% set version = "0.4.2" %}
-{% set python_min = "3.9" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +7,12 @@ package:
 
 source:
   url: https://github.com/psi-rking/optking/archive/{{ version }}.tar.gz
-  sha256: 1911aeb8f2459cf8caa39d604158bc04fbf1327e3454bb78d43440c08f5f5a90
+  sha256: 92cd81b5824d5570c054dc007a1f6e346f26546735e64fc5e814316ba31e62e9
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   host:
@@ -24,23 +23,26 @@ requirements:
   run:
     - python >={{ python_min }}
     - numpy >=1.21
-    - qcelemental >=0.21.0
-    - qcengine >=0.21.0
+    - qcelemental >=0.30.0,<0.70.0
+    - qcengine >=0.34.0
     - msgpack-python >=1.0
-    - pydantic >=1.10.17
+    - pydantic >=1.10.17,<3
 
 test:
   imports:
     - optking
   commands:
-    # - pip check
+    - test -f $SP_DIR/optking/__init__.py
+    - pip check
+    - python -c "import optking as qc;assert qc.__version__ == '{{ version }}', f'{qc.__version__=} differs from recipe=\'{{ version }}\''"
+    - sed -i 's;from \.utils;#;g' optking/tests/test_opthelper.py
     - pytest -k test_lj_external_gradient
   source_files:
     - optking/tests/test_opthelper.py
   requires:
     - python {{ python_min }}
     - pip
-    - pytest >=4.0.0
+    - pytest
 
 
 about:
